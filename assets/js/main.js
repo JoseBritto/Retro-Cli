@@ -502,12 +502,11 @@ This document and its contents are the property of Hellion Dynamics. Unauthorize
     registerCommand('why', (args) => {
         printCharacterByCharacter('I built this terminal for a friend to be used as an easter egg in his project.\n' +
             'The actual version is available at https://darshan701.github.io/H_terminal/\n' +
-            'I removed the login functionality and added this command to explain why I built this.\n' +
-            'Other than that, everything is the same.\n' +
-            'All effects and visuals are written in pure css. No images or libraries are used.\n' +
-            'The terminal implementation code is really messy since I did not have much time to work on it and didn\'t plan to publish it.\n' +
-            'The only reason you see this here is because I\'m proud of what I managed to achieve just using css.\n' +
-            'I was inspired by another similar project that I came across sometime ago that I can\'t seem to find right now.\n' +
+            'I removed the login functionality and added this command to explain why I built this.\n\n' +
+            'All effects and visuals are written in pure css and all logic in pure js. No images or libraries are used.\n' +
+            'I was inspired by another similar project that I came across sometime ago. ' +
+            '\n......................................\n' +
+            'I can\'t seem to find it right now.\n\n' +
             'PS: The commands are fairly basic as that was all that was needed for the project.\n' +
             'Thank you for checking this out!\n', 50).then(() => finishCommand());
     })
