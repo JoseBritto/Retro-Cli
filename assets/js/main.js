@@ -6,7 +6,7 @@ window.addEventListener("load", (event) => {
 
 let currentFolder = '';
 
-let username = 'MzI3NTI4MzQ5';
+let username = 'Z3Vlc3Q=';
 
 function disableDebugAccess() {
     document.addEventListener('keydown', (event) => {
@@ -36,7 +36,7 @@ function start(){
         printLine('echo [text] - print text');
         printLine('clear - clear screen');
         printLine('pwd - print current folder');
-        printLine('logout - logout from current session');
+        printLine('why - see why I built this');
     });
 
     registerCommand('logout', () => {
@@ -480,7 +480,7 @@ This document and its contents are the property of Hellion Dynamics. Unauthorize
                     break;
                 case '..':
                     if(currentFolder === '/home/'+atob(username).trim()){
-                        printLine('Cannot go back');
+                        printLine('Permission denied');
                         break;
                     }
                     currentFolder = '/home/'+atob(username).trim();
@@ -499,5 +499,22 @@ This document and its contents are the property of Hellion Dynamics. Unauthorize
         }).then(() => finishCommand());
     });
 
-    execCmd('logout');
+    registerCommand('why', (args) => {
+        printCharacterByCharacter('I built this terminal for a friend to be used as an easter egg in his project.\n' +
+            'The actual version is available at https://darshan701.github.io/H_terminal/\n' +
+            'I removed the login functionality and added this command to explain why I built this.\n' +
+            'Other than that, everything is the same.\n' +
+            'All effects and visuals are written in pure css. No images or libraries are used.\n' +
+            'The terminal implementation code is really messy since I did not have much time to work on it and didn\'t plan to publish it.\n' +
+            'The only reason you see this here is because I\'m proud of what I managed to achieve just using css.\n' +
+            'I was inspired by another similar project that I came across sometime ago that I can\'t seem to find right now.\n' +
+            'PS: The commands are fairly basic as that was all that was needed for the project.\n' +
+            'Thank you for checking this out!\n', 50).then(() => finishCommand());
+    })
+
+    clearScreen(false);
+    printCharacterByCharacter("Welcome, Stranger!\nRetro Cli Version 1.0\n\nType \'help\' to see available commands\n\n", 50)
+        .then(() => finishCommand());
+    currentFolder = '/home/'+atob(username).trim();
+    //execCmd('logout');
 }

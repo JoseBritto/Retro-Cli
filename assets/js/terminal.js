@@ -57,6 +57,7 @@ function onKeyPressed(event) {
     }
     if(keyValue.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey){
         addToBuffer(keyValue);
+        event.preventDefault();
         return;
     }
 
